@@ -1,23 +1,19 @@
 var mongoose=require('mongoose');
 
 var UserSchema = mongoose.Schema({
-	username: {
-		type: String,
-		index:true
-	},
-	password: {
-		type: String,bcrypt:true,required:true
-	},
 	email: {
-		type: String
+		type: String,unique:true,lowercase:true
 	},
-	name: {
-		type: String
+	profile:{
+        name:{type:String,default:''},
+        picture:{type:String,default:''}
     },
-    login:{
-        type:Date
-    },
-    logout:{
-        type:Date
-    }
+    coursesTeach:[{
+        course:{type:Schema.Types.ObjectId,ref:'Course'}
+    }],
+    coursesTaken:[{
+        course:{type:Schema.Types.ObjectId,ref:'Course'}
+    }]
 });
+
+module.exports=mongoose.model('User',UserSchema);
