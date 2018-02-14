@@ -1,6 +1,9 @@
 var mongoose=require('mongoose');
 
-var UserSchema = mongoose.Schema({
+
+let Schema=mongoose.Schema;
+
+var UserSchema = Schema({
 	email: {
 		type: String,unique:true,lowercase:true
 	},

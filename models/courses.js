@@ -1,6 +1,8 @@
 var mongoose=require('mongoose');
 
-var CourseSchema = mongoose.Schema({
+let Schema=mongoose.Schema;
+
+var CourseSchema = Schema({
 title:String,
 desc:String,
 wistiaId:String,
