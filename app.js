@@ -2,10 +2,14 @@ var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
+var secret=require('./config/secret');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session=require('express-session');
+var MongoStore=require('connect-mongo')(session);
 var mongoose=require('mongoose');
 var passport=require('passport');
+
 
 
 var index = require('./routes/index');
@@ -14,7 +18,7 @@ var users = require('./routes/users');
 var app = express();
 
 
-mongoose.connect('mongodb://127.0.0.1/elearn',{
+mongoose.connect(secret.database,{
   useMongoClient:true
 });
 var db=mongoose.connection;
@@ -32,6 +36,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(session({
+  secret:secret.secretKey,
+  saveUninitialized:true,
+  resave:true,
+  store:new MongoStore({url:secret.database,autoReconnect:true});
+}));
+
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 
