@@ -1,0 +1,11 @@
+extends layout
+
+
+block content
+
+    if message
+        .alert.alert-primary(role='alert')
+            | This is a primary alert—check it out!
+    
+    p   #{user.profile.name}
+    
