@@ -26,6 +26,15 @@ router.get('/profile',ensureAuth,function(req,res,next){
 })
 
 
+router.get('/become-instructor',function(req,res,next){
+
+})
+
+router.post('/become-instructor',function(req,res,next){
+
+})
+
+
 function ensureAuth(req,res,next){
   if(req.isAuthenticated()){
     console.log(req.isAuthenticated());
