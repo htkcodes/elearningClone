@@ -7,7 +7,7 @@ router.get('/login',function(req,res,next){
   res.render('login');
 })
 /* Authethicate User */
-router.get('/auth/facebook',  passport.authenticate('facebook',{scope:'email'}));
+router.get('/auth/facebook',passport.authenticate('facebook',{scope:'email'}));
 
 /* Once user has been authethicated redirect to specificied location */
 router.get('/auth/facebook/callback',passport.authenticate('facebook',{
@@ -21,9 +21,17 @@ router.get('/logout',function(req,res,next){
   res.redirect('/')
 })
 
-router.get('/profile',function(req,res,next){
+router.get('/profile',ensureAuth,function(req,res,next){
   res.render('profile'),{message:req.flash('loginMessage')};
 })
 
+
+function ensureAuth(req,res,next){
+  if(req.isAuthenticated()){
+    console.log(req.isAuthenticated());
+    return next();
+  }
+  res.redirect('/users/login');
+}
 
 module.exports = router;

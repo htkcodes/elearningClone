@@ -18,7 +18,11 @@ var UserSchema = Schema({
     }],
     coursesTaken:[{
         course:{type:Schema.Types.ObjectId,ref:'Course'}
-    }]
+    }],
+
 });
 
+
 module.exports=mongoose.model('User',UserSchema);
+
+
