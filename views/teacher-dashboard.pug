@@ -12,11 +12,11 @@ block content
                 h1.display-4 Courses you teach
                 hr.my-4
             each coursesTeach,i in foundUser.coursesTeach
-                .card
-                    h5.card-header #{coursesTeach.course.title}
+                .card.mb-3
+                    h5.card-header Course #{(i+1)}
                     .card-body
-                        h5.card-title Special title treatment
-                        p.card-text With supporting text below as a natural lead-in to additional content.
-                        a.btn.btn-primary(href='#') Go somewhere
+                        h5.card-title #{coursesTeach.course.title}
+                        p.card-text #{coursesTeach.course.desc}
+                        a.btn.btn-primary(href='edit-course/'+coursesTeach.course._id) Go somewhere
                         
     

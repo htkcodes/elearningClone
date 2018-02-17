@@ -1,0 +1,19 @@
+extends layout
+
+
+block content
+
+    .row
+        .col-md-12.mt-5
+            .jumbotron
+                h1.display-4 All Courses
+                hr.my-4
+            each course,i in courses
+                .card.mb-3
+                    h5.card-header Course #{(i+1)}
+                    .card-body
+                        h5.card-title #{course.title}
+                        p.card-text #{course.desc}
+                        
+                        
+    

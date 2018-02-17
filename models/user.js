@@ -20,7 +20,9 @@ var UserSchema = Schema({
     coursesTaken:[{
         course:{type:Schema.Types.ObjectId,ref:'Course'}
     }],
-
+revenue:[{
+    money:Number
+}]
 });
 
 

@@ -108,6 +108,42 @@ router.get('/teacher/create',function(req,res,next){
   
   ])
   })
+
+  router.get('/teacher/edit-course/:id',function(req,res,next){
+    Course.findOne({_id:req.params.id},function(err,foundCourse){
+      res.render('edit-course',{course:foundCourse});
+    })
+  })  
+  
+  router.post('/teacher/edit-course/:id',function(req,res,next){
+    Course.findOne({_id:req.params.id},function(err,foundCourse){
+      if(foundCourse){
+        if(req.body.title) foundCourse.title=req.body.title;
+        if(req.body.wistiaId) foundCourse.wistiaId=req.body.wistiaId;
+        if(req.body.price) foundCourse.price=req.body.price;
+        if(req.body.desc) foundCourse.desc=req.body.desc;
+      }
+      foundCourse.save(function (err) 
+      {
+if(err)return next(err);
+res.redirect('/users/teacher/teacher-dashboard');  
+      })
+    })
+  })
+  
+
+
+  router.get('/teacher/revenue',function(req,res,next){
+  var revenue=0;
+    User.findOne({_id:req.user._id},function(err,foundUser){
+      
+foundUser.revenue.forEach(function(value){
+revenue+=value;
+});
+
+      res.render('revenue',{revenue:revenue});
+    })
+  })  
   
 
 function ensureAuth(req,res,next){
