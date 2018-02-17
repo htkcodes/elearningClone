@@ -2,7 +2,6 @@ extends layout
 
 
 block content
-
     .row
         .col-md-12.mt-5
             .jumbotron
@@ -19,6 +18,12 @@ block content
                 else
                     p.card-text
                         | Enrolled Students:0
+    .row
+        .col-md-12
+            form(action='/payment', method='POST')
+                input(type="hidden", name="courseId" value=course._id)
+                script.stripe-button(src='https://checkout.stripe.com/checkout.js', data-key='pk_test_t5RVGSiFzAstEidfPqasSlvU', data-amount=(course.price*100), data-name='Demo Site', data-description='Widget', data-image='https://stripe.com/img/documentation/checkout/marketplace.png', data-locale='auto')
+
 
                        
                         

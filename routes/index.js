@@ -89,7 +89,7 @@ router.post('/payment', function (req, res, next) {
         }
       })
     },
-    function (cb) {
+    function (foundCourse,cb) {
       stripe.customers.create({
         source: stripeToken,
         email: req.user.email
