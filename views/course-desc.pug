@@ -1,0 +1,26 @@
+extends layout
+
+
+block content
+
+    .row
+        .col-md-12.mt-5
+            .jumbotron
+                h1.display-4 Courses Description
+                hr.my-4
+                .card.mb-3
+                    h5.card-header Course
+                    .card-body
+                        h5.card-title #{course.title} 
+                        p.card-text   #{course.desc}
+                if  course.ownByStudent == null
+                    each student in course.ownByStudent
+                        p.card-text #{student.profile.name}
+                else
+                    p.card-text
+                        | Enrolled Students:0
+
+                       
+                        
+                        
+    

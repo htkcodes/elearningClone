@@ -8,7 +8,8 @@ block content
             .jumbotron
                 h1.display-4 All Courses
                 hr.my-4
-            each course,i in courses
+        each course,i in courses
+            a(href='/courses/'+course._id)
                 .card.mb-3
                     h5.card-header Course #{(i+1)}
                     .card-body
