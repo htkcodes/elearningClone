@@ -95,8 +95,8 @@ router.post('/payment', function (req, res, next) {
         email: req.user.email
       }).then(function (customer) {
         return stripe.charges.create({
-          amount: foundCourse.price,
-          current: 'usd',
+          amount: foundCourse.price*100,
+          currency: 'usd',
           customer: customer.id
         }).then(function (charge) {
           async.parallel([
@@ -157,7 +157,8 @@ router.post('/payment', function (req, res, next) {
       })
     }], function (err, results) {
     if (err) return next(err);
-    res.redirect('/courses/' + courseId)
+    /*TODO:FIX REDIRECT*/
+    res.redirect('courses/' + courseId)
   })
 
 
