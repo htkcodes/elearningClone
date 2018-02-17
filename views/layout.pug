@@ -18,7 +18,7 @@ html
                   span.sr-only (current)
           ul.navbar-nav
                 li.nav-item
-                    a.nav-link(href='users/login')
+                    a.nav-link(href='login')
                       | Login 
                       span.sr-only (current)
                 li.nav-item
@@ -40,13 +40,31 @@ html
                 a.nav-link(href='#')
                   | Profile
           ul.navbar-nav
+            if user.role == "teacher"
+                li.nav-item.dropdown
+                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                    | Dashboard
+                  .dropdown-menu(aria-labelledby='navbarDropdown')
+                    a.dropdown-item(href='teacher-dashboard') Instructor's Dashboard
+                    a.dropdown-item(href='#') Revenue Report
                 li.nav-item
                     a.nav-link(href='logout')
                       | Logout
-          
-
-
+            else
+                li.nav-item
+                  a.nav-link(href="become-an-instructor")
+                    | Become an Instructor
+                  href
+                li.nav-item
+                  a.nav-link(href='logout')
+                    | Logout
+                
+        
            
 
   div.container
     block content
+  script(src='/javascripts/jquery-3.2.1.slim.min.js')
+  script(src='/javascripts/popper.js')
+  script(src='/javascripts/bootstrap-material-design.js', )
+

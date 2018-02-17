@@ -9,6 +9,7 @@ var UserSchema = Schema({
     },
     facebook:String,
     token:Array,
+    role:String,
 	profile:{
         name:{type:String,default:''},
         picture:{type:String,default:''}

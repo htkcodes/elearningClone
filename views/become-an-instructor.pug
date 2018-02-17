@@ -1,0 +1,21 @@
+extends layout
+
+
+block content
+
+    .row
+        .col-md-6.mt-5.offset-md-3
+            h1.mb-4  Create Course
+            form(action="become-an-instructor",method="POST")
+              .form-group
+                input.form-control(type='text', placeholder='Enter Course Title' name="title" )
+              .form-group
+                input.form-control(placeholder='Enter Course Description' name="desc" type='text')
+              .form-group
+                input.form-control(placeholder='Enter Course Price' name="price" type='number')
+              .form-group
+                input.form-control(placeholder='Enter Wistia ID' name="wistiaId" type='text')
+                        
+              button.btn.btn-primary.btn-raised(type='submit') Submit
+                        
+    
