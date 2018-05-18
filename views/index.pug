@@ -1,5 +1,75 @@
-extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+  body.theme-blue
+    .authentication
+      .container-fluid
+        .row.clearfix
+          .col-lg-9.col-md-8.col-xs-12.p-l-0
+            .l-detail
+              h5.position Welcome
+              h1.position
+                img(src='assets/images/logo.svg', alt='profile img')
+                span U
+                | niversity
+              h3.position Sign in to start your session
+              p.position
+                | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              ul.list-unstyled.l-social.position
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-facebook-box
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-linkedin-box
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-pinterest-box
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-twitter
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-google-plus-box
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-behance
+                li
+                  a(href='#')
+                    i.zmdi.zmdi-dribbble
+              ul.list-unstyled.l-menu
+                li
+                  a(href='#') Contact Us
+                li
+                  a(href='#') About Us
+                li
+                  a(href='#') FAQ
+          .col-lg-3.col-md-4.col-xs-12.p-r-0
+            .card.position
+              h4.l-login Login
+              form#sign_in.col-md-12(method='POST')
+                .form-group.form-float
+                  .form-line
+                    input.form-control(type='text')
+                    label.form-label First Name
+                .form-group.form-float
+                  .form-line
+                    input.form-control(type='text')
+                    label.form-label Password
+                div
+                  input#rememberme.filled-in.chk-col-cyan(type='checkbox', name='rememberme')
+                  label(for='rememberme') Remember Me
+                a.btn.btn-raised.btn-info.waves-effect(href='index-2.html', type='submit') SIGN IN
+                a.btn.btn-raised.waves-effect(href='sign-up.html', type='submit') SIGN UP
+                .text-left
+                  a(href='forgot-password.html') Forgot Password?
+      #instance1
+    // Jquery Core Js
+    script(src='assets/bundles/libscripts.bundle.js')
+    // Lib Scripts Plugin Js
+    script(src='assets/bundles/vendorscripts.bundle.js')
+    // Lib Scripts Plugin Js
+    script(src='assets/js/pages/login2/jparticles.js')
+    script(src='assets/js/pages/login2/particle.js')
+    script(src='assets/bundles/mainscripts.bundle.js')
+    // Custom Js
+    script(src='assets/js/pages/login2/event.js')
+  // Mirrored from thememakker.com/ax/university/html/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 17 Feb 2018 22:45:28 GMT

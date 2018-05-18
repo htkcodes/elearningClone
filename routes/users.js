@@ -134,14 +134,14 @@ res.redirect('/users/teacher/teacher-dashboard');
 
 
   router.get('/teacher/revenue',function(req,res,next){
-  var revenue=0;
     User.findOne({_id:req.user._id},function(err,foundUser){
       
-foundUser.revenue.forEach(function(value){
-revenue+=value;
-});
 
-      res.render('revenue',{revenue:revenue});
+
+
+
+
+      res.render('revenue',{revenue:foundUser.revenue[0]['money']});
     })
   })  
   

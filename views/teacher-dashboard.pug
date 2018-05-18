@@ -11,6 +11,7 @@ block content
             .jumbotron
                 h1.display-4 Courses you teach
                 hr.my-4
+        if foundUser.coursesTeach!=null
             each coursesTeach,i in foundUser.coursesTeach
                 .card.mb-3
                     h5.card-header Course #{(i+1)}
@@ -18,5 +19,7 @@ block content
                         h5.card-title #{coursesTeach.course.title}
                         p.card-text #{coursesTeach.course.desc}
                         a.btn.btn-primary(href='edit-course/'+coursesTeach.course._id) Go somewhere
+        else
+            p   No courses
                         
     

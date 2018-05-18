@@ -8,6 +8,7 @@ block content
             .jumbotron
                 h1.display-4 All Courses
                 hr.my-4
+    if courses!=null
         each course,i in courses
             a(href='/courses/'+course._id)
                 .card.mb-3
@@ -15,6 +16,9 @@ block content
                     .card-body
                         h5.card-title #{course.title}
                         p.card-text #{course.desc}
+    else
+        p   No courses
+    
                         
                         
     

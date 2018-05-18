@@ -1,66 +1,20 @@
 doctype html
-html
+html.no-js(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/bootstrap-material-design.css')
-  body
-  if !user
-    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.py-3
-      .container
-        a.navbar-brand(href='#') eClone
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-        #navbarsExampleDefault.collapse.navbar-collapse 
-          ul.navbar-nav.mr-auto
-            li.nav-item.active
-                a.nav-link(href='#')
-                  | Home 
-                  span.sr-only (current)
-          ul.navbar-nav
-                li.nav-item
-                    a.nav-link(href='/users/login')
-                      | Login 
-                      span.sr-only (current)
-                li.nav-item
-                  a.nav-link(href='')
-                      | Register 
-  else
-     nav.navbar.navbar-expand-md.navbar-dark.bg-dark.py-3
-      .container
-        a.navbar-brand(href='#') eClone
-        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
-          span.navbar-toggler-icon
-        #navbarsExampleDefault.collapse.navbar-collapse 
-          ul.navbar-nav.mr-auto
-            li.nav-item.active
-                a.nav-link(href='#')
-                  | Home 
-                  span.sr-only (current)
-            li.nav-item
-                a.nav-link(href='#')
-                  | Profile
-          ul.navbar-nav
-            if user.role == "teacher"
-                li.nav-item.dropdown
-                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                    | Dashboard
-                  .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='teacher-dashboard') Instructor's Dashboard
-                    a.dropdown-item(href='#') Revenue Report
-                li.nav-item
-                    a.nav-link(href='/logout')
-                      | Logout
-            else
-                li.nav-item
-                  a.nav-link(href="become-an-instructor")
-                    | Become an Instructor
-                  href
-                li.nav-item
-                  a.nav-link(href='/logout')
-                    | Logout
-                
-        
-           
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
+    title :: adminX - University ::
+    meta(name='description', content='WrapTheme, University Admin')
+    meta(name='keywords', content='adminX, adminX Admin, University, Material Design')
+    // Favicon
+    link(rel='icon', href='favicon.ico', type='image/x-icon')
+    // Custom Css
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet', type='text/css')
+    link(href='assets/css/main.css', rel='stylesheet')
+    link(href='assets/css/login.css', rel='stylesheet')
+    // You can choose a theme from css/themes instead of get all themes
+    link(href='assets/css/themes/all-themes.css', rel='stylesheet')
 
   div.container
     block content
